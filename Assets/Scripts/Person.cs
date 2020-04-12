@@ -11,9 +11,11 @@ public class Person : MonoBehaviour
 
     //variables that has to do with spawning footprints
     //flourdistance: how long a person has to walk before they stop leaving footprints
+    //distanceUntilSpawnFlour: distance until the footprints stop spawning, internal-use only
     //flourinterval: how long a person has to walk until a set of prints is spawned
     //distanceUntilSpawnFlour: distance until the next set of prints is spawned, internal-use only
     public float flourDistance;
+    private float distanceUntilStopSpawningFlour;
     public float flourInterval;
     private float distanceUntilSpawnFlour;
 
@@ -24,6 +26,7 @@ public class Person : MonoBehaviour
     void Start()
     {
         distanceUntilSpawnFlour = 0;
+        distanceUntilStopSpawningFlour = 0;
     }
 
     // Update is called once per frame
@@ -36,13 +39,14 @@ public class Person : MonoBehaviour
 
         //start leaving prints
         leavesPrints = true;
+        distanceUntilStopSpawningFlour = flourDistance;
 
         //while this character should leave prints...
         while (leavesPrints) {
 
             //set the distance until spawning prints to be the distance interval of spawning prints
             distanceUntilSpawnFlour = flourInterval;
-
+            
             //set here to be the start position
             Vector2 startPos = transform.position;
 
@@ -57,7 +61,7 @@ public class Person : MonoBehaviour
 
                 //subtract from spawn interval and total flour distance
                 distanceUntilSpawnFlour -= distanceTravelled;
-                flourDistance -= distanceTravelled;
+                distanceUntilStopSpawningFlour -= distanceTravelled;
 
                 //set here to be the new start point
                 startPos = transform.position;
@@ -70,7 +74,7 @@ public class Person : MonoBehaviour
             GameObject newPrints = Instantiate(footprintTemplate, transform.position, transform.rotation);
 
             //if player has walked far enough, no longer leave any prints
-            if(flourDistance <= 0) {
+            if(distanceUntilStopSpawningFlour <= 0) {
                 leavesPrints = false;
             }
 
