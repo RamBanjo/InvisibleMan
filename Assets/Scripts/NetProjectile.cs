@@ -24,12 +24,11 @@ public class NetProjectile : MonoBehaviour
             target.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
             target.speed = 0;
             GameManager.Win();
-        } else {
-            Instantiate(GameManager.s_gamePickups[1], transform.position, transform.rotation);
-            Destroy(gameObject);
         }
 
-        
-        
+        Instantiate(GameManager.s_gamePickups[1], transform.position, transform.rotation);
+        Destroy(gameObject);
+
+
     }
 }

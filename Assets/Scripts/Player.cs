@@ -54,7 +54,7 @@ public class Player : Person
             DropItem();
         }
 
-        if (Input.GetKeyDown(KeyCode.Mouse0)) {
+        if (Input.GetMouseButton(0)) {
             UseItem();
         }
     }
@@ -65,15 +65,19 @@ public class Player : Person
 
     private void GetItem() {
 
-        if(CurrentItem == GameManager.Items.NONE) {
+        if(CurrentItem == GameManager.Items.NONE && hovering != null) {
             CurrentItem = hovering.itemType;
             Destroy(hovering.gameObject);
         }
     }
 
     private void DropItem() {
-        Instantiate(GameManager.s_gamePickups[(int)CurrentItem - 1], transform.position, transform.rotation);
-        CurrentItem = GameManager.Items.NONE;
+
+        if(CurrentItem != GameManager.Items.NONE) {
+            Instantiate(GameManager.s_gamePickups[(int)CurrentItem - 1], transform.position, transform.rotation);
+            CurrentItem = GameManager.Items.NONE;
+        }
+
     }
 
     private void UseItem() {
