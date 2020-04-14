@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class Player : Person
 {
 
-    public float speed = 5;
     public Camera main_camera;
 
     // Start is called before the first frame update

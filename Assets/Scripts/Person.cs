@@ -5,7 +5,10 @@ using UnityEngine;
 public class Person : MonoBehaviour
 {
 
+    public float speed = 5;
     public GameObject footprintTemplate;
+    public bool hasPrints;
+
     public bool leavesPrints;
     public bool isPainted;
 
@@ -14,12 +17,12 @@ public class Person : MonoBehaviour
     //distanceUntilSpawnFlour: distance until the footprints stop spawning, internal-use only
     //flourinterval: how long a person has to walk until a set of prints is spawned
     //distanceUntilSpawnFlour: distance until the next set of prints is spawned, internal-use only
-    public float flourDistance;
+    public float flourDistance = 5;
     private float distanceUntilStopSpawningFlour;
-    public float flourInterval;
+    public float flourInterval = 1;
     private float distanceUntilSpawnFlour;
 
-    public float afflictionDuration;
+    public float afflictionDuration = 3;
     public float afflictionInterval;
 
     // Start is called before the first frame update
@@ -32,7 +35,7 @@ public class Person : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if a person leaves prints
+
     }
 
     public IEnumerator StartLeavingPrints() {
