@@ -68,6 +68,7 @@ public class Player : Person
         if(CurrentItem == GameManager.Items.NONE && hovering != null) {
             CurrentItem = hovering.itemType;
             Destroy(hovering.gameObject);
+            hovering = null;
         }
     }
 

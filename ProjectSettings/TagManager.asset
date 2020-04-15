@@ -41,3 +41,15 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: map
+    uniqueID: 3863231413
+    locked: 0
+  - name: hazard
+    uniqueID: 2079058499
+    locked: 0
+  - name: item
+    uniqueID: 1861057955
+    locked: 0
+  - name: people
+    uniqueID: 3595637711
+    locked: 0

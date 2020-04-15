@@ -26,8 +26,13 @@ public class NetProjectile : MonoBehaviour
             GameManager.Win();
         }
 
-        Instantiate(GameManager.s_gamePickups[1], transform.position, transform.rotation);
-        Destroy(gameObject);
+        Player p = collision.collider.GetComponent<Player>();
+
+        if (p == null) {
+            Instantiate(GameManager.s_gamePickups[1], transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
+
 
 
     }
