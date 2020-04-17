@@ -20,10 +20,10 @@ public class NetProjectile : MonoBehaviour
 
         if(target != null) {
             rb2d.velocity = Vector2.zero;
+            target.caught = true;
             collision.collider.attachedRigidbody.velocity = Vector2.zero;
             target.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
-            target.speed = 0;
-            GameManager.Win();
+            GameManager.CheckWin();
         }
 
         Player p = collision.collider.GetComponent<Player>();

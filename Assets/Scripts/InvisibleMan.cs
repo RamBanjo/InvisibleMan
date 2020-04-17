@@ -5,11 +5,13 @@ using UnityEngine;
 public class InvisibleMan : Person
 {
 
-    //list of points in the map that the invisible person will move. this should loop in some way, for now.
-    public List<Transform> waypoints;
-
     //the point where the invisible man should walk to. once the invisible man arrives at that point, he will get a new random destination from the waypoint's "next waypoints".
+    //you need to set an initial point on the map otherwise it will not work.
     public Waypoint destination;
+
+
+    //by default, an invisible man isn't caught. if he is caught, then this is set to true and he stops moving.
+    public bool caught = false;
 
     //how many seconds the invisible person should wait before changing the destination.
 
@@ -19,7 +21,14 @@ public class InvisibleMan : Person
     //make sure consecutive waypoints aren't blocked by walls.
 
     private void Update() {
-        transform.position = Vector2.MoveTowards(transform.position, destination.transform.position, Time.deltaTime * speed);
+
+        int stopWhenCaught = 1;
+
+        if (caught) {
+            stopWhenCaught = 0;
+        }
+
+        transform.position = Vector2.MoveTowards(transform.position, destination.transform.position, Time.deltaTime * speed * stopWhenCaught);
 
         Vector2 myPosition = transform.position;
         Vector2 myDestination = destination.transform.position;

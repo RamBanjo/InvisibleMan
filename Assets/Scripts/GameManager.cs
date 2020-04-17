@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
 
     public static GameManager gmInstance;
+    public static List<InvisibleMan> activeInvisibleMen;
 
     [Tooltip("Should be in this order: Flour, Net, Paint")]
     public List<Pickup> gamePickups;
@@ -22,6 +23,18 @@ public class GameManager : MonoBehaviour {
 
     public static GameObject s_winUI { get => gmInstance.winUI; }
 
+    public static void CheckWin() {
+        bool playerWon = true;
+
+        foreach(InvisibleMan im in activeInvisibleMen) {
+            playerWon = playerWon && im.caught;
+        }
+
+        if (playerWon) {
+            Win();
+        }
+    }
+
     public static void Win() {
         s_winUI.SetActive(true);
     }
@@ -29,6 +42,17 @@ public class GameManager : MonoBehaviour {
     private void Awake() {
         gmInstance = this;
         winUI.SetActive(false);
+    }
+
+    private void Start() {
+
+        activeInvisibleMen = new List<InvisibleMan>();
+
+        GameObject[] invises = GameObject.FindGameObjectsWithTag("Invisible Man");
+        foreach(GameObject go in invises) {
+            activeInvisibleMen.Add(go.GetComponent<InvisibleMan>());
+        }
+
     }
 
     public enum Items {
