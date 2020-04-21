@@ -30,10 +30,18 @@ public class InvisibleMan : Person
 
         transform.position = Vector2.MoveTowards(transform.position, destination.transform.position, Time.deltaTime * speed * stopWhenCaught);
 
+        Movement();
+    }
+
+    public void Movement() {
+        MoveToDestination();
+    }
+
+    public void MoveToDestination() {
         Vector2 myPosition = transform.position;
         Vector2 myDestination = destination.transform.position;
 
-        if(myPosition == myDestination) {
+        if (myPosition == myDestination) {
             destination = destination.GetNextDestination();
         }
     }
