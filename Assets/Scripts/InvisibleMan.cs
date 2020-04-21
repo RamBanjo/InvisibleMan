@@ -21,15 +21,6 @@ public class InvisibleMan : Person
     //make sure consecutive waypoints aren't blocked by walls.
 
     private void Update() {
-
-        int stopWhenCaught = 1;
-
-        if (caught) {
-            stopWhenCaught = 0;
-        }
-
-        transform.position = Vector2.MoveTowards(transform.position, destination.transform.position, Time.deltaTime * speed * stopWhenCaught);
-
         Movement();
     }
 
@@ -41,8 +32,31 @@ public class InvisibleMan : Person
         Vector2 myPosition = transform.position;
         Vector2 myDestination = destination.transform.position;
 
+        int stopWhenCaught = 1;
+
+        if (caught) {
+            stopWhenCaught = 0;
+        }
+
+        transform.position = Vector2.MoveTowards(myPosition, myDestination, Time.deltaTime * speed * stopWhenCaught);
+
         if (myPosition == myDestination) {
             destination = destination.GetNextDestination();
         }
+    }
+
+    protected Waypoint GetClosestWaypoint() {
+        Waypoint minWP = null;
+        float minDist = Mathf.Infinity;
+        Vector2 currentPos = transform.position;
+
+        foreach (Waypoint wp in GameManager.allWayPoints) {
+            float distance = Vector2.Distance(wp.transform.position, currentPos);
+            if (distance < minDist) {
+                minWP = wp;
+                minDist = distance;
+            }
+        }
+        return minWP;
     }
 }

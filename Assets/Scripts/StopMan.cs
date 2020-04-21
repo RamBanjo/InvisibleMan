@@ -13,15 +13,6 @@ public class StopMan : InvisibleMan {
     }
 
     private void Update() {
-
-        int stopWhenCaught = 1;
-
-        if (caught) {
-            stopWhenCaught = 0;
-        }
-
-        transform.position = Vector2.MoveTowards(transform.position, destination.transform.position, Time.deltaTime * speed * stopWhenCaught);
-
         Movement();
     }
 

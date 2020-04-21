@@ -6,12 +6,14 @@ public class GameManager : MonoBehaviour {
 
     public static GameManager gmInstance;
     public static List<InvisibleMan> activeInvisibleMen;
+    public static List<Waypoint> allWayPoints;
 
     [Tooltip("Should be in this order: Flour, Net, Paint")]
     public List<Pickup> gamePickups;
     public FlourPatch flourPatch;
     public NetProjectile netProjectile;
     public GameObject winUI;
+    
 
     public static List<Pickup> s_gamePickups {
         get {
@@ -53,6 +55,12 @@ public class GameManager : MonoBehaviour {
             activeInvisibleMen.Add(go.GetComponent<InvisibleMan>());
         }
 
+        allWayPoints = new List<Waypoint>();
+
+        GameObject[] waypointses = GameObject.FindGameObjectsWithTag("Waypoint");
+        foreach (GameObject go in waypointses) {
+            allWayPoints.Add(go.GetComponent<Waypoint>());
+        }
     }
 
     public enum Items {
