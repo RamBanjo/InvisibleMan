@@ -6,13 +6,20 @@ public class Pickup : MonoBehaviour
 {
 
     public GameManager.Items itemType;
-    public SpriteRenderer spriteOutline;
+    public Sprite unselected;
+    public Sprite selected;
+    private SpriteRenderer mySprite;
+
+    private void Awake() {
+        mySprite = this.GetComponent<SpriteRenderer>();
+        mySprite.sprite = unselected;
+    }
 
     private void OnTriggerEnter2D(Collider2D collision) {
         Player playerInstance = collision.GetComponent<Player>();
 
         if (playerInstance != null) {
-            spriteOutline.color = Color.red;
+            mySprite.sprite = selected;
             playerInstance.hovering = this;
         }
     }
@@ -21,7 +28,7 @@ public class Pickup : MonoBehaviour
         Player playerInstance = collision.GetComponent<Player>();
 
         if (playerInstance != null) {
-            spriteOutline.color = Color.black;
+            mySprite.sprite = unselected;
             playerInstance.hovering = null;
         }
     }

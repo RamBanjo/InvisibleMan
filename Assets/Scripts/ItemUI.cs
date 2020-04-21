@@ -6,12 +6,13 @@ using UnityEngine.UI;
 public class ItemUI : MonoBehaviour
 {
 
-    public Text itemDisplayer;
+    public Image itemDisplayer;
 
     // Start is called before the first frame update
     void Start()
     {
         Player.ItemChangeDelegate += SetDisplayedItem;
+        itemDisplayer.enabled = false;
     }
 
     // Update is called once per frame
@@ -22,23 +23,17 @@ public class ItemUI : MonoBehaviour
 
     private void SetDisplayedItem(GameManager.Items item) {
 
-        string shownItem = "-";
+        Sprite shownItem;
 
-        switch (item) {
-            case GameManager.Items.FLOUR:
-                shownItem = "FLR";
-                break;
-            case GameManager.Items.NET:
-                shownItem = "NET";
-                break;
-            case GameManager.Items.PAINT:
-                shownItem = "PNT";
-                break;
-            default:
-                break;
+        
+
+        if(item == GameManager.Items.NONE) {
+            itemDisplayer.enabled = false;
+        } else {
+            itemDisplayer.enabled = true;
+            shownItem = GameManager.s_gamePickups[(int)item - 1].unselected;
+            itemDisplayer.sprite = shownItem;
         }
-
-        itemDisplayer.text = shownItem;
 
     }
 }
