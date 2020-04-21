@@ -19,10 +19,12 @@ public class Player : Person
 
     public float throwSpeed;
 
+    private Rigidbody2D rb2d;
+
     // Start is called before the first frame update
     void Start()
     {
-
+        rb2d = GetComponent<Rigidbody2D>();
         ItemChangeDelegate += SetCurrentItem;
 
     }
@@ -37,14 +39,15 @@ public class Player : Person
     void FixedUpdate()
     {
         //movement, get axis
-        float vert = Input.GetAxis("Vertical") * speed;
-        float horz = Input.GetAxis("Horizontal") * speed;
+        float vert = Input.GetAxis("Vertical");
+        float horz = Input.GetAxis("Horizontal");
 
-        vert *= Time.deltaTime;
-        horz *= Time.deltaTime;
+        Vector3 goHere = (new Vector2(horz, vert) * Time.deltaTime * speed);
 
         //and then move the character
-        transform.Translate(horz, vert, 0);
+        rb2d.MovePosition(transform.position + goHere);
+
+        //transform.Translate(horz, vert, 0);
 
         if(Input.GetKeyDown(KeyCode.E)) {
             GetItem();
