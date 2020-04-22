@@ -15,7 +15,7 @@ public class Waypoint : MonoBehaviour
         return nextWaypointCandidates[randomIndex];
     }
 
-    /*private void OnTriggerExit2D(Collider2D collision) {
+    private void OnTriggerEnter2D(Collider2D collision) {
         InvisibleMan invis = collision.GetComponent<InvisibleMan>();
 
         if(invis != null) {
@@ -33,5 +33,5 @@ public class Waypoint : MonoBehaviour
     void Update()
     {
         
-    }*/
+    }
 }

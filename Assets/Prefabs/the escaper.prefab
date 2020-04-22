@@ -134,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc052213c13b9e349b55ddc9e4b5d140, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 2.5
   footprintTemplate: {fileID: 8500849740925947999, guid: 5e13e3ee586b0fd4cbea23cd69c08749,
     type: 3}
   hasPrints: 0

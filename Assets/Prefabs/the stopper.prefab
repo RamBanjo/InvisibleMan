@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c93aca2bfa00704c96a268f16bdc62e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 2.5
   footprintTemplate: {fileID: 0}
   hasPrints: 0
   leavesPrints: 0

@@ -20,6 +20,14 @@ public class InvisibleMan : Person
     //when arriving at the waypoint, the waypoint will give them a new destination, choosing randomly from potential candidates
     //make sure consecutive waypoints aren't blocked by walls.
 
+    private Collider2D myCollider;
+    private Collider2D destinationCollider;
+
+    private void Start() {
+        myCollider = GetComponent<Collider2D>();
+        destinationCollider = destination.GetComponent<Collider2D>();
+    }
+
     private void Update() {
         Movement();
     }
@@ -40,9 +48,9 @@ public class InvisibleMan : Person
 
         transform.position = Vector2.MoveTowards(myPosition, myDestination, Time.deltaTime * speed * stopWhenCaught);
 
-        if (myPosition == myDestination) {
+        /*if (myPosition == myDestination) {
             destination = destination.GetNextDestination();
-        }
+        }*/
     }
 
     protected Waypoint GetClosestWaypoint() {
