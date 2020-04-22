@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
+    public static bool panic;
+    public static bool gameOver;
     public static GameManager gmInstance;
     public static List<InvisibleMan> activeInvisibleMen;
     public static List<Waypoint> allWayPoints;
@@ -13,6 +16,7 @@ public class GameManager : MonoBehaviour {
     public FlourPatch flourPatch;
     public NetProjectile netProjectile;
     public GameObject winUI;
+    public GameObject loseUI;
     
 
     public static List<Pickup> s_gamePickups {
@@ -24,6 +28,8 @@ public class GameManager : MonoBehaviour {
     public static NetProjectile s_netProjectile { get => gmInstance.netProjectile; }
 
     public static GameObject s_winUI { get => gmInstance.winUI; }
+
+    public static GameObject s_loseUI { get => gmInstance.loseUI; }
 
     public static void CheckWin() {
         bool playerWon = true;
@@ -39,11 +45,25 @@ public class GameManager : MonoBehaviour {
 
     public static void Win() {
         s_winUI.SetActive(true);
+        gameOver = true;
+    }
+
+    public static void Lose() {
+        s_loseUI.SetActive(true);
+        gameOver = true;
     }
 
     private void Awake() {
-        gmInstance = this;
+
+        if(gmInstance == null) {
+            gmInstance = this;
+        } else {
+            Destroy(this);
+        }
         winUI.SetActive(false);
+        loseUI.SetActive(false);
+        panic = false;
+        gameOver = false;
     }
 
     private void Start() {
@@ -60,6 +80,22 @@ public class GameManager : MonoBehaviour {
         GameObject[] waypointses = GameObject.FindGameObjectsWithTag("Waypoint");
         foreach (GameObject go in waypointses) {
             allWayPoints.Add(go.GetComponent<Waypoint>());
+        }
+    }
+
+    private void Update() {
+        if (gameOver) {
+            if (Input.GetKeyDown(KeyCode.R)) {
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }
+
+            if (Input.GetKeyDown(KeyCode.M)) {
+                SceneManager.LoadScene("TitleScreen");
+            }
+
+            if (Input.GetKeyDown(KeyCode.Q)) {
+                Application.Quit();
+            }
         }
     }
 

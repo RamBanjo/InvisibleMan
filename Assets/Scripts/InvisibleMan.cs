@@ -67,4 +67,14 @@ public class InvisibleMan : Person
         }
         return minWP;
     }
+
+    private void OnCollisionEnter2D(Collision2D collision) {
+        Player player = collision.collider.GetComponent<Player>();
+
+        if(player != null && GameManager.panic && !caught) {
+            player.speed = 0;
+            this.GetComponent<SpriteRenderer>().color = Color.white;
+            GameManager.Lose();
+        }
+    }
 }
