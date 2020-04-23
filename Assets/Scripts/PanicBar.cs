@@ -6,11 +6,13 @@ using UnityEngine.UI;
 public class PanicBar : MonoBehaviour
 {
 
-    private Slider panicBar;    
+    private Slider panicBar;
+    private Image barFill;
     // Start is called before the first frame update
     void Start()
     {
         panicBar = GetComponent<Slider>();
+        barFill = panicBar.fillRect.GetComponentInChildren<Image>();
         panicBar.value = panicBar.minValue;
     }
 
@@ -23,6 +25,13 @@ public class PanicBar : MonoBehaviour
             if(panicBar.value >= panicBar.maxValue) {
                 GameManager.panic = true;
             }
+        }
+
+        if (panicBar.value == 100) {
+
+            float lerpValue = Mathf.Pow(Mathf.Sin(Time.time*5), 2);
+
+            barFill.color = Color.Lerp(Color.red, Color.yellow, lerpValue);
         }
 
         if (Input.GetKey(KeyCode.Equals)) {
