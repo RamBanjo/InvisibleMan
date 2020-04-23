@@ -13,18 +13,21 @@ public class InvisibleMan : Person
     //by default, an invisible man isn't caught. if he is caught, then this is set to true and he stops moving.
     public bool caught = false;
 
-    //how many seconds the invisible person should wait before changing the destination.
+    //the colors on invisible men when they get painted
+    public Color normalColor = Color.clear;
+    public Color paintedColor = Color.green;
+    public Color caughtColor = Color.white;
 
     //make the invisible person move from waypoint to waypoint.
     //if the invisible man isn't at the waypoint, make them move towards destination point.
     //when arriving at the waypoint, the waypoint will give them a new destination, choosing randomly from potential candidates
     //make sure consecutive waypoints aren't blocked by walls.
 
-    private Collider2D myCollider;
-    private Collider2D destinationCollider;
+    private SpriteRenderer mySprite;
 
-    private void Start() {
-
+    protected void Start() {
+        mySprite = GetComponent<SpriteRenderer>();
+        mySprite.color = normalColor;
     }
 
     private void Update() {
@@ -68,8 +71,32 @@ public class InvisibleMan : Person
 
         if(player != null && GameManager.panic && !caught) {
             player.speed = 0;
-            this.GetComponent<SpriteRenderer>().color = Color.white;
+            mySprite.color = caughtColor;
             GameManager.Lose();
         }
     }
+
+    public IEnumerator StartBeingPainted() {
+        //this method should be called from the paint puddle
+        afflictionTimer = afflictionDuration;
+        mySprite.color = paintedColor;
+
+        if (!isPainted) {
+            isPainted = true;
+
+            while (afflictionTimer > 0) {
+                mySprite.color = Color.Lerp(normalColor, paintedColor, afflictionTimer / afflictionDuration * 4);
+
+                afflictionTimer -= Time.deltaTime;
+
+                yield return new WaitForSeconds(0);
+            }
+
+            mySprite.color = normalColor;
+
+            isPainted = false;
+        }
+    }
+
+
 }

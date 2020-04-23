@@ -7,9 +7,11 @@ public class Person : MonoBehaviour
 
     public float speed = 5;
     public GameObject footprintTemplate;
-    public bool hasPrints;
+    //public bool hasPrints;
 
+    [HideInInspector]
     public bool leavesPrints;
+    [HideInInspector]
     public bool isPainted;
 
     //variables that has to do with spawning footprints
@@ -22,14 +24,17 @@ public class Person : MonoBehaviour
     public float flourInterval = 1;
     private float distanceUntilSpawnFlour;
 
-    public float afflictionDuration = 3;
-    public float afflictionInterval;
+    public float afflictionDuration = 10;
+    [HideInInspector]
+    public float afflictionTimer;
 
     // Start is called before the first frame update
     void Start()
     {
         distanceUntilSpawnFlour = 0;
         distanceUntilStopSpawningFlour = 0;
+        leavesPrints = false;
+        isPainted = false;
     }
 
     // Update is called once per frame
@@ -83,26 +88,4 @@ public class Person : MonoBehaviour
 
         }
     }
-
-
-    //might make this code work with paint instead, don't delete this yet
-    //-- banjo
-    /*
-    IEnumerator StartLeavingPrints() {
-        //this method should be called from the flour puddle
-        leavesPrints = true;
-        StartCoroutine(LeavePrints());
-        yield return new WaitForSeconds(afflictionDuration);
-        leavesPrints = false;
-    }
-
-    IEnumerator LeavePrints() {
-        while (leavesPrints) {
-            GameObject newPrints = Instantiate(footprintTemplate, transform.position, transform.rotation);
-            yield return new WaitForSeconds(afflictionInterval);
-        }
-    }*/
-
-
-
 }

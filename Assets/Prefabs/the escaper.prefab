@@ -137,15 +137,18 @@ MonoBehaviour:
   speed: 2.5
   footprintTemplate: {fileID: 8500849740925947999, guid: 5e13e3ee586b0fd4cbea23cd69c08749,
     type: 3}
-  hasPrints: 0
   leavesPrints: 0
   isPainted: 0
   flourDistance: 5
   flourInterval: 1
-  afflictionDuration: 3
-  afflictionInterval: 0
+  afflictionDuration: 10
+  afflictionTimer: 0
   destination: {fileID: 0}
+  persistentDestination: {fileID: 0}
   caught: 0
+  normalColor: {r: 1, g: 1, b: 1, a: 0}
+  paintedColor: {r: 0, g: 1, b: 0, a: 1}
+  caughtColor: {r: 0, g: 0, b: 0, a: 0.5019608}
   activateRadius: {fileID: 2734543533426178975}
   playerRadius: {fileID: 0}
 --- !u!1 &2734543533426178974

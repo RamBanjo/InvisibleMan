@@ -8,7 +8,8 @@ public class StopMan : InvisibleMan {
     private float permanentSpeed;
     public Collider2D playerRadius;
 
-    private void Start() {
+    new private void Start() {
+        base.Start();
         permanentSpeed = speed;
     }
 

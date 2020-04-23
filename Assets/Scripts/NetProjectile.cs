@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class NetProjectile : MonoBehaviour
 {
-    [HideInInspector]
-    public Rigidbody2D rb2d;
+    private Rigidbody2D rb2d;
 
     public float speed;
 
@@ -26,7 +25,7 @@ public class NetProjectile : MonoBehaviour
             rb2d.velocity = Vector2.zero;
             target.caught = true;
             collision.collider.attachedRigidbody.velocity = Vector2.zero;
-            target.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
+            target.GetComponent<SpriteRenderer>().color = target.caughtColor;
             EnemyCapturedDelegate();
         }
 

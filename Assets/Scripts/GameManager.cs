@@ -11,10 +11,11 @@ public class GameManager : MonoBehaviour {
     public static List<InvisibleMan> activeInvisibleMen;
     public static List<Waypoint> allWayPoints;
 
-    [Tooltip("Should be in this order: Flour, Net, Paint")]
+    [Tooltip("Should be in this order: Flour, Net, Paint, Alarm")]
     public List<Pickup> gamePickups;
     public FlourPatch flourPatch;
     public NetProjectile netProjectile;
+    public PaintPuddle paintPuddle;
     public GameObject winUI;
     public GameObject loseUI;
     
@@ -26,6 +27,8 @@ public class GameManager : MonoBehaviour {
     }
     public static FlourPatch s_flourPatch { get => gmInstance.flourPatch;}
     public static NetProjectile s_netProjectile { get => gmInstance.netProjectile; }
+
+    public static PaintPuddle s_paintPuddle { get => gmInstance.paintPuddle; }
 
     public static GameObject s_winUI { get => gmInstance.winUI; }
 

@@ -99,6 +99,8 @@ public class Player : Person
                 useSuccess = true;
                 break;
             case GameManager.Items.PAINT:
+                Instantiate(GameManager.s_paintPuddle, transform.position, transform.rotation);
+                useSuccess = true;
                 break;
             case GameManager.Items.ALARM:
                 break;

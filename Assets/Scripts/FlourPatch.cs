@@ -10,7 +10,7 @@ public class FlourPatch : MonoBehaviour
 
         //if the person game object exists, then make them leave prints
         if (personInstance != null) {
-            if(personInstance.hasPrints) StartCoroutine(personInstance.StartLeavingPrints());
+            StartCoroutine(personInstance.StartLeavingPrints());
         }
     }
 }
