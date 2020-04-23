@@ -64,14 +64,11 @@ public class GameManager : MonoBehaviour {
         loseUI.SetActive(false);
         panic = false;
         gameOver = false;
-    }
-
-    private void Start() {
 
         activeInvisibleMen = new List<InvisibleMan>();
 
         GameObject[] invises = GameObject.FindGameObjectsWithTag("Invisible Man");
-        foreach(GameObject go in invises) {
+        foreach (GameObject go in invises) {
             activeInvisibleMen.Add(go.GetComponent<InvisibleMan>());
         }
 
@@ -81,7 +78,9 @@ public class GameManager : MonoBehaviour {
         foreach (GameObject go in waypointses) {
             allWayPoints.Add(go.GetComponent<Waypoint>());
         }
+    }
 
+    private void Start() {
         NetProjectile.EnemyCapturedDelegate += CheckWin;
     }
 
