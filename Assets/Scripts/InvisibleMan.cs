@@ -28,6 +28,7 @@ public class InvisibleMan : Person
     protected void Start() {
         mySprite = GetComponent<SpriteRenderer>();
         mySprite.color = normalColor;
+        persistentDestination = destination;
     }
 
     private void Update() {
@@ -39,6 +40,7 @@ public class InvisibleMan : Person
     }
 
     public void MoveToDestination() {
+
         Vector2 myPosition = transform.position;
         Vector2 myDestination = destination.transform.position;
 
@@ -90,9 +92,15 @@ public class InvisibleMan : Person
                 afflictionTimer -= Time.deltaTime;
 
                 yield return new WaitForSeconds(0);
+
+                if (caught) {
+                    break;
+                }
             }
 
-            mySprite.color = normalColor;
+            if (!caught) {
+                mySprite.color = normalColor;
+            }
 
             isPainted = false;
         }

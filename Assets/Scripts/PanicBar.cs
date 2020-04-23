@@ -27,15 +27,16 @@ public class PanicBar : MonoBehaviour
             }
         }
 
-        if (panicBar.value == 100) {
+        if (panicBar.value == panicBar.maxValue) {
 
             float lerpValue = Mathf.Pow(Mathf.Sin(Time.time*5), 2);
 
             barFill.color = Color.Lerp(Color.red, Color.yellow, lerpValue);
         }
 
-        if (Input.GetKey(KeyCode.Equals)) {
-            panicBar.value = 99;
-        }
+        //enable for debug
+        /*if (Input.GetKey(KeyCode.Equals)) {
+            panicBar.value = panicBar.maxValue - 1;
+        }*/
     }
 }

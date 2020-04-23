@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour {
     public FlourPatch flourPatch;
     public NetProjectile netProjectile;
     public PaintPuddle paintPuddle;
+    public AlarmPoint alarmPoint;
     public GameObject winUI;
     public GameObject loseUI;
     
@@ -25,10 +26,14 @@ public class GameManager : MonoBehaviour {
             return gmInstance.gamePickups;
         }
     }
+
     public static FlourPatch s_flourPatch { get => gmInstance.flourPatch;}
+
     public static NetProjectile s_netProjectile { get => gmInstance.netProjectile; }
 
     public static PaintPuddle s_paintPuddle { get => gmInstance.paintPuddle; }
+
+    public static AlarmPoint s_alarmPoint { get => gmInstance.alarmPoint; }
 
     public static GameObject s_winUI { get => gmInstance.winUI; }
 

@@ -103,6 +103,8 @@ public class Player : Person
                 useSuccess = true;
                 break;
             case GameManager.Items.ALARM:
+                Instantiate(GameManager.s_alarmPoint, transform.position, transform.rotation);
+                useSuccess = true;
                 break;
             default:
                 break;
