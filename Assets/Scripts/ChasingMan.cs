@@ -24,7 +24,7 @@ public class ChasingMan : InvisibleMan {
 
     new public void MoveToDestination() {
         if(destination == null) {
-            destination = GetClosestWaypoint();
+            destination = persistentDestination;
         }
 
         base.MoveToDestination();

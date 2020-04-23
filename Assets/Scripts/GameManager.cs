@@ -81,6 +81,12 @@ public class GameManager : MonoBehaviour {
         foreach (GameObject go in waypointses) {
             allWayPoints.Add(go.GetComponent<Waypoint>());
         }
+
+        NetProjectile.EnemyCapturedDelegate += CheckWin;
+    }
+
+    private void OnDestroy() {
+        NetProjectile.EnemyCapturedDelegate -= CheckWin;
     }
 
     private void Update() {
@@ -100,7 +106,7 @@ public class GameManager : MonoBehaviour {
     }
 
     public enum Items {
-        NONE, FLOUR, NET, PAINT
+        NONE, FLOUR, NET, PAINT, ALARM
     }
 
 }

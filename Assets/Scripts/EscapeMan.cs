@@ -23,7 +23,7 @@ public class EscapeMan : InvisibleMan {
 
     new public void MoveToDestination() {
         if (destination == null) {
-            destination = GetClosestWaypoint();
+            destination = persistentDestination;
         }
 
         base.MoveToDestination();

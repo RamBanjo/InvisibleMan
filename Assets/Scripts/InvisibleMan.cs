@@ -8,7 +8,7 @@ public class InvisibleMan : Person
     //the point where the invisible man should walk to. once the invisible man arrives at that point, he will get a new random destination from the waypoint's "next waypoints".
     //you need to set an initial point on the map otherwise it will not work.
     public Waypoint destination;
-
+    public Waypoint persistentDestination;
 
     //by default, an invisible man isn't caught. if he is caught, then this is set to true and he stops moving.
     public bool caught = false;
@@ -24,8 +24,7 @@ public class InvisibleMan : Person
     private Collider2D destinationCollider;
 
     private void Start() {
-        myCollider = GetComponent<Collider2D>();
-        destinationCollider = destination.GetComponent<Collider2D>();
+
     }
 
     private void Update() {
@@ -47,10 +46,6 @@ public class InvisibleMan : Person
         }
 
         transform.position = Vector2.MoveTowards(myPosition, myDestination, Time.deltaTime * speed * stopWhenCaught);
-
-        /*if (myPosition == myDestination) {
-            destination = destination.GetNextDestination();
-        }*/
     }
 
     protected Waypoint GetClosestWaypoint() {

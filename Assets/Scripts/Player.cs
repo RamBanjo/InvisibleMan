@@ -95,26 +95,12 @@ public class Player : Person
                 useSuccess = true;
                 break;
             case GameManager.Items.NET:
-
-                Vector2 here = transform.position;
-                Vector2 mousePos = Input.mousePosition;
-                mousePos = main_camera.ScreenToWorldPoint(mousePos);
-
-                Vector2 rot = mousePos - here;
-
-                float angle = Mathf.Atan2(rot.y, rot.x);
-
-                Vector2 normal = rot.normalized;
-
-                NetProjectile net = Instantiate(GameManager.s_netProjectile, here+(normal), transform.rotation);
-
-                net.transform.rotation = Quaternion.AngleAxis(Mathf.Rad2Deg * angle, Vector3.forward);
-                net.rb2d.AddForce(net.transform.right * throwSpeed);
-
+                Shoot(GameManager.s_netProjectile.gameObject);
                 useSuccess = true;
-
                 break;
             case GameManager.Items.PAINT:
+                break;
+            case GameManager.Items.ALARM:
                 break;
             default:
                 break;
@@ -123,5 +109,22 @@ public class Player : Person
         if (useSuccess) {
             CurrentItem = GameManager.Items.NONE;
         }
+    }
+
+    private void Shoot(GameObject g) {
+        Vector2 here = transform.position;
+        Vector2 mousePos = Input.mousePosition;
+        mousePos = main_camera.ScreenToWorldPoint(mousePos);
+
+        Vector2 rot = mousePos - here;
+
+        float angle = Mathf.Atan2(rot.y, rot.x);
+
+        Vector2 normal = rot.normalized;
+
+        GameObject objectToShoot = Instantiate(g, here + (normal), transform.rotation);
+
+        objectToShoot.transform.rotation = Quaternion.AngleAxis(Mathf.Rad2Deg * angle, Vector3.forward);
+        objectToShoot.GetComponent<Rigidbody2D>().AddForce(objectToShoot.transform.right * throwSpeed);
     }
 }

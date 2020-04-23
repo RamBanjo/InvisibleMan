@@ -8,6 +8,10 @@ public class NetProjectile : MonoBehaviour
     public Rigidbody2D rb2d;
 
     public float speed;
+
+    public delegate void EnemyCaptured();
+    public static event EnemyCaptured EnemyCapturedDelegate;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -23,7 +27,7 @@ public class NetProjectile : MonoBehaviour
             target.caught = true;
             collision.collider.attachedRigidbody.velocity = Vector2.zero;
             target.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 0.5f);
-            GameManager.CheckWin();
+            EnemyCapturedDelegate();
         }
 
         Player p = collision.collider.GetComponent<Player>();

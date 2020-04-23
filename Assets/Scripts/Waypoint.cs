@@ -20,6 +20,7 @@ public class Waypoint : MonoBehaviour
 
         if(invis != null) {
             invis.destination = GetNextDestination();
+            invis.persistentDestination = invis.destination;
         }
     }
 
