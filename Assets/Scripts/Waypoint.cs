@@ -19,8 +19,13 @@ public class Waypoint : MonoBehaviour
         InvisibleMan invis = collision.GetComponent<InvisibleMan>();
 
         if(invis != null) {
-            invis.destination = GetNextDestination();
-            invis.persistentDestination = invis.destination;
+
+            //the destination will only be changed if the colliding object is an invisible man AND this destination is the intended destination
+            if(invis.destination == this) {
+                invis.destination = GetNextDestination();
+                invis.persistentDestination = invis.destination;
+            }
+
         }
     }
 
