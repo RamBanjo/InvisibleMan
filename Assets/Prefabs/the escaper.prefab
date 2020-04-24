@@ -148,7 +148,7 @@ MonoBehaviour:
   caught: 0
   normalColor: {r: 1, g: 1, b: 1, a: 0}
   paintedColor: {r: 0, g: 1, b: 0, a: 1}
-  caughtColor: {r: 0, g: 0, b: 0, a: 0.5019608}
+  caughtColor: {r: 1, g: 1, b: 1, a: 0.5019608}
   activateRadius: {fileID: 2734543533426178975}
   playerRadius: {fileID: 0}
 --- !u!1 &2734543533426178974
