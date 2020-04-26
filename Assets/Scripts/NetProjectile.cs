@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class NetProjectile : MonoBehaviour
 {
+
+    private bool alreadyHit;
+
     private Rigidbody2D rb2d;
 
     public float speed;
@@ -15,6 +18,7 @@ public class NetProjectile : MonoBehaviour
     void Awake()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        alreadyHit = false;
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
@@ -29,14 +33,13 @@ public class NetProjectile : MonoBehaviour
             EnemyCapturedDelegate();
         }
 
-        Player p = collision.collider.GetComponent<Player>();
-
-        if (p == null) {
+        if (!alreadyHit) {
             Instantiate(GameManager.s_gamePickups[1], transform.position, transform.rotation);
-            Destroy(gameObject);
         }
 
+        alreadyHit = true;
 
+        Destroy(gameObject);
 
     }
 }
