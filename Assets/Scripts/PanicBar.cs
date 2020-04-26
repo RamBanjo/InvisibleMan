@@ -19,7 +19,7 @@ public class PanicBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (panicBar.value < panicBar.maxValue) {
+        if (panicBar.value < panicBar.maxValue && !GameManager.gameOver) {
             panicBar.value += Time.deltaTime;
 
             if(panicBar.value >= panicBar.maxValue) {

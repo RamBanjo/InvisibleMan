@@ -10,7 +10,7 @@ public class PaintPuddle : MonoBehaviour
 
         //if the person game object exists, then make them leave prints
         if (invisMan != null) {
-            StartCoroutine(invisMan.StartBeingPainted());
+            if(!invisMan.caught) StartCoroutine(invisMan.StartBeingPainted());
         }
     }
 }
