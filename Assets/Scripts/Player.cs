@@ -37,11 +37,14 @@ public class Player : Person
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.E)) {
-            GetItem();
-        }
 
-        if (Input.GetKeyDown(KeyCode.Q)) {
-            DropItem();
+            if(currentItem == GameManager.Items.NONE) {
+                GetItem();
+            } else {
+                DropItem();
+            }
+
+            
         }
 
         if (Input.GetMouseButton(0)) {
