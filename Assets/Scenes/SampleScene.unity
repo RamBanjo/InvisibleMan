@@ -5234,11 +5234,6 @@ PrefabInstance:
       propertyPath: playerRadius
       value: 
       objectReference: {fileID: 858382899}
-    - target: {fileID: 568479466492493857, guid: b596b678ae2db4b449605e94a68e5c5c,
-        type: 3}
-      propertyPath: normalColor.a
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 568479466492493863, guid: b596b678ae2db4b449605e94a68e5c5c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5294,6 +5289,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 568479467408604531, guid: b596b678ae2db4b449605e94a68e5c5c,
+        type: 3}
+      propertyPath: m_Name
+      value: chase radius
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b596b678ae2db4b449605e94a68e5c5c, type: 3}
 --- !u!1001 &3108075710123985012
@@ -5303,6 +5303,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3108075709893852014, guid: acd49fe93f7ac294397cf9855d0892e3,
+        type: 3}
+      propertyPath: m_Name
+      value: stop radius
+      objectReference: {fileID: 0}
     - target: {fileID: 3108075711074895418, guid: acd49fe93f7ac294397cf9855d0892e3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5373,17 +5378,6 @@ PrefabInstance:
       propertyPath: playerRadius
       value: 
       objectReference: {fileID: 858382899}
-    - target: {fileID: 3108075711074895422, guid: acd49fe93f7ac294397cf9855d0892e3,
-        type: 3}
-      propertyPath: footprintTemplate
-      value: 
-      objectReference: {fileID: 8500849740925947999, guid: 5e13e3ee586b0fd4cbea23cd69c08749,
-        type: 3}
-    - target: {fileID: 3108075711074895422, guid: acd49fe93f7ac294397cf9855d0892e3,
-        type: 3}
-      propertyPath: hasPrints
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acd49fe93f7ac294397cf9855d0892e3, type: 3}
 --- !u!1001 &4837275462631413371
@@ -5401,12 +5395,12 @@ PrefabInstance:
     - target: {fileID: 4837275461073002237, guid: 2b568a456854b764c9f598b80b46e8b8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.28
+      value: -1.44
       objectReference: {fileID: 0}
     - target: {fileID: 4837275461073002237, guid: 2b568a456854b764c9f598b80b46e8b8,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.87
+      value: 3.46
       objectReference: {fileID: 0}
     - target: {fileID: 4837275461073002237, guid: 2b568a456854b764c9f598b80b46e8b8,
         type: 3}
@@ -5532,6 +5526,11 @@ PrefabInstance:
       propertyPath: playerRadius
       value: 
       objectReference: {fileID: 858382899}
+    - target: {fileID: 2734543533426178974, guid: c505e8e17135f0a4393d457b2bf84197,
+        type: 3}
+      propertyPath: m_Name
+      value: escape radius
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c505e8e17135f0a4393d457b2bf84197, type: 3}
 --- !u!1001 &5936957648133584605

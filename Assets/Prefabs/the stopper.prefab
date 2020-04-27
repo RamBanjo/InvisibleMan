@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3108075709893852008}
   - component: {fileID: 3108075709893852015}
-  m_Layer: 8
-  m_Name: activation radius
+  m_Layer: 13
+  m_Name: stop radius
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,7 +60,7 @@ GameObject:
   - component: {fileID: 3108075711074895416}
   - component: {fileID: 3108075711074895423}
   - component: {fileID: 3108075711074895422}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: the stopper
   m_TagString: Invisible Man
   m_Icon: {fileID: 0}
@@ -182,7 +182,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2.5
-  footprintTemplate: {fileID: 0}
+  footprintTemplate: {fileID: 8500849740925947999, guid: 5e13e3ee586b0fd4cbea23cd69c08749,
+    type: 3}
   leavesPrints: 0
   isPainted: 0
   flourDistance: 5

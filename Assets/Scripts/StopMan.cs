@@ -19,13 +19,17 @@ public class StopMan : InvisibleMan {
 
     new public void Movement() {
 
-        /*Player hitPlayer = null;
+        string[] masks = { "NPCs", "hazards", "activeradii" };
+        int masking = LayerMask.GetMask(masks);
+
+        Player hitPlayer = null;
 
         if (activateRadius.IsTouching(playerRadius)) {
-            hitPlayer = Physics2D.Linecast(transform.position, playerRadius.transform.position).collider.GetComponent<Player>();
-        }*/
+            RaycastHit2D hit = Physics2D.Linecast(transform.position, playerRadius.transform.position, ~masking);
+            hitPlayer = hit.collider.GetComponent<Player>();
+        }
 
-        if (/*hitPlayer != null*/ activateRadius.IsTouching(playerRadius)) {
+        if (hitPlayer != null && activateRadius.IsTouching(playerRadius)) {
             speed = 0;
         } else {
             speed = permanentSpeed;
