@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour {
 
     public static bool panic;
     public static bool gameOver;
+    public static Player player;
     public static GameManager gmInstance;
     public static List<InvisibleMan> activeInvisibleMen;
     public static List<Waypoint> allWayPoints;
@@ -73,6 +74,8 @@ public class GameManager : MonoBehaviour {
         panic = false;
         gameOver = false;
 
+        Player player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
         activeInvisibleMen = new List<InvisibleMan>();
 
         GameObject[] invises = GameObject.FindGameObjectsWithTag("Invisible Man");
@@ -86,6 +89,7 @@ public class GameManager : MonoBehaviour {
         foreach (GameObject go in waypointses) {
             allWayPoints.Add(go.GetComponent<Waypoint>());
         }
+        
     }
 
     private void Start() {
