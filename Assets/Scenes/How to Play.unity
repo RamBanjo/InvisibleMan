@@ -2092,12 +2092,10 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'WASD or Arrow Keys: Move
 
-    E: Pick up item
+    E: Pick up/Drop item
 
-    Q: Drop item
-
-    Left
-    Click (or primary click): Use item'
+    Left Click (or
+    primary click): Use item'
 --- !u!222 &1884844174
 CanvasRenderer:
   m_ObjectHideFlags: 0

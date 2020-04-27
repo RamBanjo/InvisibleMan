@@ -15,7 +15,7 @@ public class Pickup : MonoBehaviour
         mySprite.sprite = unselected;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision) {
+    private void OnTriggerStay2D(Collider2D collision) {
         Player playerInstance = collision.GetComponent<Player>();
 
         if (playerInstance != null) {
