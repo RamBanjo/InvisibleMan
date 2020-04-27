@@ -35,6 +35,20 @@ public class Player : Person
 
     }
 
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.E)) {
+            GetItem();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q)) {
+            DropItem();
+        }
+
+        if (Input.GetMouseButton(0)) {
+            UseItem();
+        }
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -48,18 +62,6 @@ public class Player : Person
         rb2d.MovePosition(transform.position + goHere);
 
         //transform.Translate(horz, vert, 0);
-
-        if(Input.GetKeyDown(KeyCode.E)) {
-            GetItem();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Q)) {
-            DropItem();
-        }
-
-        if (Input.GetMouseButton(0)) {
-            UseItem();
-        }
     }
 
     public void SetCurrentItem(GameManager.Items value) {
