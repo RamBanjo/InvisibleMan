@@ -13,7 +13,13 @@ public class EscapeMan : InvisibleMan {
 
     new public void Movement() {
 
+        /*Player hitPlayer = null;
+
         if (activateRadius.IsTouching(playerRadius)) {
+            hitPlayer = Physics2D.Linecast(transform.position, playerRadius.transform.position).collider.GetComponent<Player>();
+        }*/
+
+        if (/*hitPlayer != null*/ activateRadius.IsTouching(playerRadius)) {
             RunAway();
         } else {
             MoveToDestination();

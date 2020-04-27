@@ -14,7 +14,13 @@ public class ChasingMan : InvisibleMan {
 
     new public void Movement() {
 
+        /*Player hitPlayer = null;
+
         if (activateRadius.IsTouching(playerRadius)) {
+            hitPlayer = Physics2D.Linecast(transform.position, playerRadius.transform.position).collider.GetComponent<Player>();
+        }*/
+
+        if (/*hitPlayer != null*/ activateRadius.IsTouching(playerRadius)) {
             MoveToPlayer();
         } else {
             MoveToDestination();
