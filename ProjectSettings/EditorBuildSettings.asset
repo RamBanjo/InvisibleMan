@@ -6,6 +6,36 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/TitleScreen.unity
+    guid: 2ead061ce5d237f4cbd479e94bf4c305
+  - enabled: 1
+    path: Assets/Scenes/How to Play.unity
+    guid: fb53660223d2e704195ee8119ff19f8d
+  - enabled: 1
+    path: Assets/Scenes/How to Play 2.unity
+    guid: aecf2529529e69e4f95e444b7a89a3f1
+  - enabled: 1
+    path: Assets/Scenes/Credits1.unity
+    guid: 548886b7e8d66c64a997e1b4a8d6d31c
+  - enabled: 1
+    path: Assets/Scenes/Credits2.unity
+    guid: cede8d224faa0c44e868ad98aab38564
+  - enabled: 1
+    path: Assets/Scenes/LevelSelect.unity
+    guid: 01ac8abbb8219a6438cfe8abe9b63f93
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/ToffeeScene.unity
+    guid: ffb346ddc7dd7a04bb8e2eda0b23c824
+  - enabled: 1
+    path: Assets/Scenes/BanjoScene.unity
+    guid: 3597c3e099d188d4aa8532b440682809
+  - enabled: 1
+    path: Assets/Scenes/GuideScene.unity
+    guid: 7025bb0d46e540a4e925eab59c20f86d
+  - enabled: 1
+    path: Assets/Scenes/NattScene.unity
+    guid: 33de9168ce3350d48bc386584c937084
   m_configObjects: {}
