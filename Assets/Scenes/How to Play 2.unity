@@ -1923,8 +1923,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Alarm: Makes a sound when invisible man is near. However, invisible man
-    will destroy it and stop the sound if they are near.'
+  m_Text: 'Alarm: Makes a sound when invisible man is near.
+
+    Invisible man will
+    move towards and destroy it.'
 --- !u!222 &1498592705
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2935,7 +2937,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Paint Can: Throw at invisible man to make them visible forever!'
+  m_Text: 'Paint Can: Click to leave a paint puddle on the floor. Invisible men who
+    passes becomes visible for a while.'
 --- !u!222 &2038969126
 CanvasRenderer:
   m_ObjectHideFlags: 0
