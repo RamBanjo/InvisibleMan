@@ -13,7 +13,7 @@ public class AlarmActivator : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision) {
 
-        string[] masks = { "hazards", "activeradii" };
+        string[] masks = { "hazards", "activeradii", "waypoint" };
         int masking = LayerMask.GetMask(masks);
         //print(masking + " " + ~masking);
         //masking = ~masking;

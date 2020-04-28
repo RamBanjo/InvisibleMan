@@ -13,7 +13,7 @@ public class EscapeMan : InvisibleMan {
 
     new public void Movement() {
 
-        string[] masks = { "NPCs", "hazards", "activeradii" };
+        string[] masks = { "NPCs", "hazards", "activeradii", "waypoint" };
         int masking = LayerMask.GetMask(masks);
 
         Player hitPlayer = null;
