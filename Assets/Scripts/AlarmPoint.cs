@@ -36,7 +36,7 @@ public class AlarmPoint : Waypoint
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        //when touched by an invisible person, this alarm will break
+        //when touched by an invisible person, this alarm will brea
 
         InvisibleMan iv = collision.GetComponent<InvisibleMan>();
 

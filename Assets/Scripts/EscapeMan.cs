@@ -13,7 +13,17 @@ public class EscapeMan : InvisibleMan {
 
     new public void Movement() {
 
+        string[] masks = { "NPCs", "hazards", "activeradii" };
+        int masking = LayerMask.GetMask(masks);
+
+        Player hitPlayer = null;
+
         if (activateRadius.IsTouching(playerRadius)) {
+            RaycastHit2D hit = Physics2D.Linecast(transform.position, playerRadius.transform.position, ~masking);
+            hitPlayer = hit.collider.GetComponent<Player>();
+        }
+
+        if (hitPlayer != null && activateRadius.IsTouching(playerRadius)) {
             RunAway();
         } else {
             MoveToDestination();

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2129270736686871904}
   - component: {fileID: 2129270736686871911}
   - component: {fileID: 2129270736686871910}
-  m_Layer: 8
+  m_Layer: 12
   m_Name: the invisible
   m_TagString: Invisible Man
   m_Icon: {fileID: 0}
@@ -145,6 +145,6 @@ MonoBehaviour:
   destination: {fileID: 0}
   persistentDestination: {fileID: 0}
   caught: 0
-  normalColor: {r: 1, g: 1, b: 1, a: 0}
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
   paintedColor: {r: 0, g: 1, b: 0, a: 1}
   caughtColor: {r: 1, g: 1, b: 1, a: 0.5019608}
