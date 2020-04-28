@@ -145,6 +145,6 @@ MonoBehaviour:
   destination: {fileID: 0}
   persistentDestination: {fileID: 0}
   caught: 0
-  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  normalColor: {r: 1, g: 1, b: 1, a: 0}
   paintedColor: {r: 0, g: 1, b: 0, a: 1}
   caughtColor: {r: 1, g: 1, b: 1, a: 0.5019608}
